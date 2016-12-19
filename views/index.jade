@@ -5,9 +5,16 @@
      
 
 html
-    title Geronimo !
+    head
+        link(rel="stylesheet", href="bootstrap/dist/css/bootstrap.min.css", Content-Type="text/css")
+        title Geronimo !
     body
-        p Communication avec socket.io
-       
+        h1.row Uber chat
+        
+        p.row
+            input.col-lg-8#msgContent(type="text", name="msgContent")
+            input.col-lg-4#msgSubmit(type="submit")
+        
+        script(src="jquery/dist/jquery.min.js")
         script(src="/socket.io/socket.io.js")
         script(src="/scripts/uberchat.js")

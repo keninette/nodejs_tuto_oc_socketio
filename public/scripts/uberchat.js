@@ -1,7 +1,11 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Socket.io connection and create mini-chat
  */
-alert('plop');
+var socket = io.connect('http://localhost:8090');
+
+$("#msgSubmit").click(function(){
+    var msg = $("#msgContent").val();
+    console.log(msg);
+    socket.emit('message', msg);
+});
 

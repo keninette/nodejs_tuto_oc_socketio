@@ -1,0 +1,19 @@
+{
+  "name": "kbj",
+  "description": "nodejs oc tuto chat",
+  "main": [],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "bootstrap": "^3.3.7"
+  },
+  "devDependencies": {},
+  "authors": [
+    "keninette bobby johnny <keninette.bloggeusedeluxe@gmail.com>"
+  ],
+  "license": "free",
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ],
+  "private": true
+}

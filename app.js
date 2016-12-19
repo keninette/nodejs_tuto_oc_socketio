@@ -8,20 +8,24 @@ var path    = require('path');
 
 // middlewares
 app.use(logger('combined'))
-    .use('/', express.static(path.join(__dirname, '/public')));
+    .use(express.static(path.join(__dirname, '/public')))
+    .use(express.static(path.join(__dirname,'/bower_components')));
     
 // routes
 app.get('/', function (req, res) {
     res.render('index.jade');
 });
 
+
+
 // when a client is connected, log it into console
-io.sockets.on('connection', function() {
+io.sockets.on('connection', function(socket) {
     console.log('client connected');
-    io.emit('message','Wilkommen !');
+    socket.emit('message','Wilkommen !');
+    
+    socket.on('message', function(message)  {
+        console.log(message);
+    });
 });
 
-io.sockets.on('message', function(message)  {
-    console.log(message);
-});
 server.listen(8090);
