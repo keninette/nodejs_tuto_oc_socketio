@@ -16,16 +16,17 @@ app.get('/', function (req, res) {
     res.render('index.jade');
 });
 
-
-
 // when a client is connected, log it into console
 io.sockets.on('connection', function(socket) {
-    console.log('client connected');
-    socket.emit('message','Wilkommen !');
+    
+    socket.on('user_connected', function(nickname) {
+        socket.nickname = nickname;
+        socket.broadcast.emit('message', nickname +' has joined the room');
+    });
     
     socket.on('message', function(message)  {
-        console.log(message);
+        socket.broadcast.emit('message',message);
     });
 });
 
-server.listen(8090);
+server.listen(3000);

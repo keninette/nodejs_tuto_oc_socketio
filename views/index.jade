@@ -9,11 +9,12 @@ html
         link(rel="stylesheet", href="bootstrap/dist/css/bootstrap.min.css", Content-Type="text/css")
         title Geronimo !
     body
-        h1.row Uber chat
+        h1.row.col-sm-offset-1 Uber chat
         
         p.row
-            input.col-lg-8#msgContent(type="text", name="msgContent")
-            input.col-lg-4#msgSubmit(type="submit")
+            textarea.col-sm-8.col-sm-offset-1#messages(row=100)
+            input.col-sm-8.col-sm-offset-1#msgContent(type="text", name="msgContent")
+            input.col-sm-1.col-sm-offset-1#msgSubmit(type="submit")
         
         script(src="jquery/dist/jquery.min.js")
         script(src="/socket.io/socket.io.js")
